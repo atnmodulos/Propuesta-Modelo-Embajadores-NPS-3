@@ -69,14 +69,14 @@
             color: var(--coppel-yellow);
         }
 
-        /* --- Layout tipo Dashboard (Grid) --- */
+        /* --- Layout tipo Dashboard (Columna) --- */
         .dashboard-container {
-            max-width: 1300px;
+            max-width: 900px; /* Reducido para una mejor lectura en vertical */
             margin: 40px auto;
             padding: 0 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
         /* --- Tarjetas (Cards) --- */
@@ -132,19 +132,22 @@
             position: relative;
             z-index: 1;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .phase-badge {
             display: inline-block;
             background-color: var(--coppel-blue);
             color: var(--white);
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 4px;
-            font-size: 0.8em;
+            font-size: 0.85em;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 15px;
+            margin: 0 0 15px 0;
+            align-self: flex-start;
         }
 
         .card h2 {
@@ -191,7 +194,7 @@
             background-color: #F8FBFF;
             border-left: 4px solid var(--coppel-yellow);
             padding: 12px 15px;
-            border-radius: 0 6px 6px 0;
+            border-radius: 0; /* Diseño rectangular */
             font-weight: 600;
             color: var(--coppel-blue-dark);
             font-size: 0.9em;
@@ -202,12 +205,11 @@
 
         /* --- Footer Informativo --- */
         .info-section {
-            max-width: 1300px;
+            max-width: 900px; /* Ajustado para igualar el ancho de las tarjetas superiores */
             margin: 0 auto 50px;
             padding: 0 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            display: flex;
+            justify-content: center;
             animation: fadeIn 0.8s ease-out backwards;
             animation-delay: 0.6s;
         }
@@ -215,23 +217,14 @@
         .info-card {
             background: var(--coppel-blue);
             color: var(--white);
-            padding: 40px 35px;
+            padding: 30px; /* Igualado al relleno de las tarjetas superiores */
             border-radius: 12px;
             display: flex;
             gap: 20px;
             align-items: flex-start;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            width: 100%;
         }
-
-        .info-card.benefits {
-            background: var(--white);
-            color: var(--text-dark);
-            border: 2px solid var(--coppel-yellow);
-        }
-
-        .info-card.benefits h3 { color: var(--coppel-blue); }
-        .info-card.benefits p { color: var(--text-gray); }
-        .info-card.benefits li { color: var(--text-gray); }
 
         .info-icon {
             background: var(--coppel-yellow);
@@ -265,14 +258,6 @@
             top: 4px;
         }
 
-        /* Right Card Bullets: Blue Checkmark */
-        .info-card.benefits li::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23005DAA' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
-            width: 16px;
-            height: 16px;
-            top: 4px;
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -280,7 +265,6 @@
 
         @media (max-width: 900px) {
             .header { flex-direction: column; text-align: center; gap: 15px; }
-            .info-section { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -401,7 +385,7 @@
         </article>
     </main>
 
-    <!-- Sección Inferior: Consideraciones y Beneficios -->
+    <!-- Sección Inferior: Consideraciones -->
     <section class="info-section">
         
         <div class="info-card dark">
@@ -410,25 +394,11 @@
             </div>
             <div class="info-content">
                 <h3>Recursos y Consideraciones</h3>
-                <p>Para garantizar el éxito de estas 16 semanas, es necesario definir:</p>
+                <p>Para garantizar el éxito, es necesario definir:</p>
                 <ul>
                     <li><strong>Talento:</strong> Designar un "Champion" (guía) del modelo.</li>
                     <li><strong>Herramientas:</strong> Asegurar tableros de seguimiento.</li>
                     <li><strong>Tiempo:</strong> Horas estimadas dedicadas a la capacitación.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="info-card benefits">
-            <div class="info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            </div>
-            <div class="info-content">
-                <h3>Beneficios Esperados</h3>
-                <p>El impacto directo de la estructura en el negocio:</p>
-                <ul>
-                    <li><strong>A Corto Plazo:</strong> Mayor visibilidad y reducción inmediata de cuellos de botella.</li>
-                    <li><strong>A Largo Plazo:</strong> Lenguaje común inter-áreas y escalabilidad operativa asegurada.</li>
                 </ul>
             </div>
         </div>
