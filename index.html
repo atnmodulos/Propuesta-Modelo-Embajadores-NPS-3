@@ -100,106 +100,18 @@
             border-color: rgba(0,93,170,0.2);
         }
 
-        /* Contenido de la Tarjeta */
-        .card-content {
-            position: relative;
-            z-index: 1;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        /* Animación para las etiquetas */
+        @keyframes badgeAppear {
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
         }
 
-        .phase-badge {
-            display: inline-block;
-            background-color: var(--coppel-blue);
-            color: var(--white);
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 0.75em;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0 0 12px 0;
-            align-self: flex-start;
-        }
-
-        .card h2 {
-            color: var(--coppel-blue);
-            margin: 0 0 12px 0;
-            font-size: 1.6em;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .objective {
-            color: var(--text-gray);
-            font-style: italic;
-            font-size: 1.05em;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #D0D0D0;
-        }
-
-        ul {
-            padding-left: 0;
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 15px;
-            padding-left: 28px;
-            position: relative;
-            font-size: 1.05em;
-            color: var(--text-gray);
-        }
-
-        li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23005DAA' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
-            background-size: cover;
-        }
-
-        .deliverable-box {
-            margin-top: auto;
-            background-color: #F8FBFF;
-            border-left: 4px solid var(--coppel-yellow);
-            padding: 12px 15px;
-            border-radius: 4px; 
-            font-weight: 600;
-            color: var(--coppel-blue-dark);
-            font-size: 0.9em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* --- Footer Informativo --- */
-        .info-section {
-            max-width: 900px;
-            margin: 0 auto 50px;
-            padding: 0 5%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,93,170,0.1);
-            border-color: rgba(0,93,170,0.2);
-        }
-
-        /* Efecto Cascada */
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
+        /* Efecto Cascada para las etiquetas */
+        .card:nth-child(1) .phase-badge { animation-delay: 0.1s; }
+        .card:nth-child(2) .phase-badge { animation-delay: 0.3s; }
+        .card:nth-child(3) .phase-badge { animation-delay: 0.5s; }
+        .card:nth-child(4) .phase-badge { animation-delay: 0.7s; }
+        .card:nth-child(5) .phase-badge { animation-delay: 0.9s; }
 
         /* Marca de agua (Número gigante) */
         .watermark {
@@ -242,6 +154,8 @@
             letter-spacing: 1px;
             margin: 0 0 15px 0;
             align-self: flex-start;
+            opacity: 0; /* Inicia invisible */
+            animation: badgeAppear 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; /* Aplica la animación */
         }
 
         .card h2 {
@@ -488,7 +402,7 @@
             </div>
             <div class="info-content">
                 <h3>Recursos y Consideraciones</h3>
-                <p>Para garantizar el éxito, es necesario definir:</p>
+                <p>Para garantizar el éxito de estas 16 semanas, es necesario definir:</p>
                 <ul>
                     <li><strong>Talento:</strong> Designar un "Champion" (guía) del modelo.</li>
                     <li><strong>Herramientas:</strong> Asegurar tableros de seguimiento.</li>
